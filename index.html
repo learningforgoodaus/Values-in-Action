@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UPDATED TITLE -->
+    <title>Activity: Values in Action</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configure Tailwind with your custom color palette -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-light-purple': '#C6B4D9',
+                        'brand-dark-purple': '#513873',
+                        'brand-deep-purple': '#413659',
+                        'brand-light-grey': '#F2F2F2',
+                        'brand-muted-purple': '#9C7F9D',
+                    },
+                    fontFamily: {
+                        // Use sans-serif as a base, which defaults to Helvetica if available
+                        sans: ['Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            /* Set Helvetica as the primary font */
+            font-family: 'Helvetica', 'Arial', 'sans-serif';
+            background-color: #F2F2F2; /* brand-light-grey */
+        }
+
+        /* Style for the navigation links */
+        .nav-link {
+            transition: background-color 0.2s, color 0.2s, transform 0.2s;
+            background-color: white;
+            color: #413659; /* brand-deep-purple */
+            border: 2px solid #C6B4D9; /* brand-light-purple */
+        }
+
+        .nav-link:hover {
+            background-color: #f0ebf9; /* A lighter version of light-purple */
+            transform: translateX(2px);
+        }
+
+        /* Style for the active navigation link */
+        .nav-link.active {
+            background-color: #513873; /* brand-dark-purple */
+            color: white;
+            border-color: #513873; /* brand-dark-purple */
+            font-weight: 600;
+        }
+
+        /* Hide content panels by default */
+        .content-panel {
+            display: none;
+        }
+
+        /* Show the active content panel */
+        .content-panel.active {
+            display: block;
+        }
+
+        /* REMOVED blockquote style */
+
+        .content-panel p, .content-panel li {
+            font-size: 1.05rem; /* Slightly smaller for the container */
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+            color: #444;
+        }
+
+        .highlight-green {
+            color: #28a745;
+            font-weight: 600;
+        }
+        .highlight-red {
+            color: #dc3545;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 md:p-8">
+
+    <div class="w-full max-w-5xl mx-auto bg-white p-6 sm:p-8 rounded-2xl shadow-xl">
+        
+        <div class="text-center mb-8">
+            <!-- UPDATED H1 TITLE -->
+            <h1 class="text-3xl md:text-4xl font-bold text-brand-deep-purple mb-4">
+                Values in Action
+            </h1>
+            <p class="text-lg text-gray-700 mt-2">
+                Select a principle to learn more.
+            </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+            <!-- Navigation Menu -->
+            <aside class="w-full md:w-1/3">
+                <nav id="principles-nav" class="flex flex-col space-y-3">
+                    <!-- WELCOME BUTTON REMOVED -->
+                    
+                    <!-- SAFETY BUTTON NOW ACTIVE BY DEFAULT -->
+                    <button class="nav-link p-4 rounded-lg text-left text-lg font-medium active" data-target="content-safety">
+                        1. Safety First
+                    </button>
+                    <button class="nav-link p-4 rounded-lg text-left text-lg font-medium" data-target="content-judgement">
+                        2. Be Non-Judgemental
+                    </button>
+                    <button class="nav-link p-4 rounded-lg text-left text-lg font-medium" data-target="content-believe">
+                        3. Believe and Validate
+                    </button>
+                    <button class="nav-link p-4 rounded-lg text-left text-lg font-medium" data-target="content-choices">
+                        4. Respect Their Choices
+                    </button>
+                    <button class="nav-link p-4 rounded-lg text-left text-lg font-medium" data-target="content-confidential">
+                        5. Be Confidential
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- Content Display Area -->
+            <main class="w-full md:w-2/3 bg-brand-light-grey p-6 rounded-lg min-h-[400px]">
+                <div id="content-area" class="relative">
+                    
+                    <!-- WELCOME PANEL REMOVED -->
+
+                    <!-- SAFETY PANEL NOW ACTIVE BY DEFAULT -->
+                    <div id="content-safety" class="content-panel active">
+                        <h2 class="text-2xl font-semibold text-brand-deep-purple mb-4">1. Safety First</h2>
+                        <p>Your number one priority is <strong>always safety</strong>. This includes:</p>
+                        <ul class="list-disc list-inside mb-5">
+                            <li><strong>The person's safety:</strong> Our response should never make the situation more dangerous for them.</li>
+                            <li><strong>Your safety:</strong> You must also be aware of your own safety.</li>
+                            <li><strong>The safety of others:</strong> This includes children, other staff, and customers.</li>
+                        </ul>
+                        <!-- Blockquote removed -->
+                    </div>
+
+                    <!-- Non-Judgemental Panel -->
+                    <div id="content-judgement" class="content-panel">
+                        <h2 class="text-2xl font-semibold text-brand-deep-purple mb-4">2. Be Non-Judgemental</h2>
+                        <p>It is <strong>not our job to judge</strong>. It is our job to help. A person experiencing violence is often already feeling ashamed, scared, and blamed (by their abuser).</p>
+                        <ul class="list-none space-y-3">
+                            <li><span class="highlight-red">DON'T ask:</span> "Why don't you just leave?" or "Why did you go back?"</li>
+                            <li><span class="highlight-green">DO say:</span> "That sounds like a really difficult and scary situation."</li>
+                        </ul>
+                        <!-- Blockquote removed -->
+                    </div>
+
+                    <!-- Believe Panel -->
+                    <div id="content-believe" class="content-panel">
+                        <h2 class="text-2xl font-semibold text-brand-deep-purple mb-4">3. Believe and Validate</h2>
+                        <p>One of the most powerful things you can do is <strong>believe someone</strong>. Many victims are told they are "crazy," "making it up," or "too sensitive."</p>
+                        <ul class="list-disc list-inside mb-5">
+                            <li><strong>Believe them.</strong> Take what they are saying seriously.</li>
+                            <li><strong>Validate their feelings.</strong> This means showing them their feelings are normal.</li>
+                        </ul>
+                        <!-- Blockquote removed -->
+                    </div>
+
+                    <!-- Choices Panel -->
+                    <div id="content-choices" class="content-panel">
+                        <h2 class="text-2xl font-semibold text-brand-deep-purple mb-4">4. Respect Their Choices</h2>
+                        <p>It is the person's right to make their own decisions, even if we don't agree with them. We can provide support and information, but we cannot "rescue" them or force them to do anything.</p>
+                        <ul class="list-disc list-inside mb-5">
+                            <li><strong>Your Role:</strong> Offer support and options.</li>
+                            <li><strong>Their Role:</strong> Decide what (if anything) to do next.</li>
+                        </ul>
+                        <!-- Blockquote removed -->
+                    </div>
+
+                    <!-- Confidential Panel -->
+                    <div id="content-confidential" class="content-panel">
+                        <h2 class="text-2xl font-semibold text-brand-deep-purple mb-4">5. Be Confidential</h2>
+                        <p>What someone tells you is <strong>private</strong>. You must not gossip or share this information with other staff, friends, or family.</p>
+                         <ul class="list-disc list-inside mb-5">
+                            <li><strong>Do:</strong> Treat the information with great care.</li>
+                            <li><strong>Don't:</strong> Leave notes lying around or talk about it in the staff room.</li>
+                        </ul>
+                        <!-- Blockquote removed -->
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('principles-nav');
+            const contentArea = document.getElementById('content-area');
+            const navLinks = nav.querySelectorAll('.nav-link');
+            const contentPanels = contentArea.querySelectorAll('.content-panel');
+
+            // --- Tab Navigation Logic ---
+            nav.addEventListener('click', (e) => {
+                const targetLink = e.target.closest('.nav-link');
+                if (!targetLink) return;
+
+                const targetId = targetLink.dataset.target;
+
+                // Update nav link styles
+                navLinks.forEach(link => link.classList.remove('active'));
+                targetLink.classList.add('active');
+
+                // Update content panel visibility
+                contentPanels.forEach(panel => panel.classList.remove('active'));
+                const targetPanel = document.getElementById(targetId);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
